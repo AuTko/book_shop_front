@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {isArray} from 'rxjs/internal-compatibility';
+import {BookDTO} from '../DTO/bookDTO';
 
 
 const API_URL = 'http://localhost:8080/api/ver1/test/';
@@ -30,7 +31,7 @@ export class UserService {
     return this.http.get(API_URL + 'admin', {responseType: 'text'});
   }
 
-  getBookList(): Observable<any> {
-    return this.http.get(API_URL + 'books/', {responseType: 'text'});
+  getBookList(): Observable<BookDTO[]> {
+    return this.http.get<BookDTO[]>(API_URL + 'books');
   }
 }

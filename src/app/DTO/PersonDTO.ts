@@ -1,5 +1,6 @@
-export interface Registration {
+export interface PersonDTO {
 
+  id: number;
   firstName: string;
   lastName: string;
   email: string;

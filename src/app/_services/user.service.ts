@@ -34,4 +34,8 @@ export class UserService {
   getBookList(): Observable<BookDTO[]> {
     return this.http.get<BookDTO[]>(API_URL + 'books');
   }
+
+  getBookListByParameters(bookName: string, author: string, genre: string): Observable<BookDTO[]> {
+    return this.http.get<BookDTO[]>(API_URL + 'books/' + bookName + '/' + author + '/' + genre);
+  }
 }

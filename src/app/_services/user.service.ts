@@ -36,6 +36,17 @@ export class UserService {
   }
 
   getBookListByParameters(bookName: string, author: string, genre: string): Observable<BookDTO[]> {
+   /* let str = '';
+    if (bookName !== 'null' && bookName !== '') {
+      str += '?bookName=' + bookName;
+    }
+    if (author !== 'null' && author !== '') {
+      str += '?author=' + author;
+    }
+    if (genre !== 'null' && genre !== '') {
+      str += '?genre=' + genre;
+    }
+    return this.http.get<BookDTO[]>(API_URL + str);*/
     return this.http.get<BookDTO[]>(API_URL + 'books/' + bookName + '/' + author + '/' + genre);
   }
 }
